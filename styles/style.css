@@ -1,11 +1,12 @@
 body {
   font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #f4f4f4;
   margin: 0;
+  overflow-y: auto;  /* Allow the page to scroll when necessary */
 }
 
 .quiz-container {
@@ -13,34 +14,10 @@ body {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 300px;
+  width: 400px;
   text-align: center;
-}
-
-.question {
-  font-size: 20px;
-  margin-bottom: 20px;
-}
-
-.options {
-  list-style-type: none;
-  padding: 0;
-}
-
-.options li {
-  margin: 10px 0;
-}
-
-.option {
-  padding: 8px;
-  background-color: #f1f1f1;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.option:hover {
-  background-color: #e0e0e0;
+  max-height: 80vh; /* Restrict the max height to 80% of the viewport height */
+  overflow-y: auto; /* Allow scrolling if content exceeds */
 }
 
 button {
@@ -55,4 +32,77 @@ button {
 
 button:hover {
   background-color: #0056b3;
+}
+
+.hidden {
+  display: none;
+}
+
+#options-container {
+  margin: 20px 0;
+}
+
+.option {
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  margin: 5px 0;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* .option:hover {
+  background-color: #f1f1f1;
+} */
+
+.correct {
+  /* background-color: #28a745; Green for correct answers */
+  color: green;
+}
+
+.incorrect {
+  color: red;
+}
+
+.selected {
+  background-color: gray; /* Light blue background for selected options */
+}
+
+#score {
+  font-size: 24px;
+  font-weight: bold;
+  color: green;
+  margin-top: 20px;
+}
+
+#question-progress {
+  margin-top: 20px;
+}
+
+#question-container {
+  margin-bottom: 20px;
+}
+
+#result-container {
+  text-align: left;
+}
+
+#answer-summary {
+  margin-top: 20px;
+}
+
+.question-result {
+  margin-bottom: 15px;
+}
+
+.question-result span {
+  font-weight: bold;
+}
+
+.question-result .correct {
+  color: green;
+}
+
+.question-result .incorrect {
+  color: red;
 }

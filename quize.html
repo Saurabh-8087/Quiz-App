@@ -3,24 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quize_App</title>
-    <link rel="stylesheet" href="styles/stles.css">
-
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-
     <div class="quiz-container">
-        <p class="question">What is the capital of France?</p>
-        <ul class="options">
-            <li><label><input type="radio" name="answer" value="Berlin" class="option"> Berlin</label></li>
-            <li><label><input type="radio" name="answer" value="Madrid" class="option"> Madrid</label></li>
-            <li><label><input type="radio" name="answer" value="Paris" class="option"> Paris</label></li>
-            <li><label><input type="radio" name="answer" value="Rome" class="option"> Rome</label></li>
-        </ul>
-        <button onclick="checkAnswer()">Submit Answer</button>
+        <div id="question-container">
+            <p id="question-text"></p>
+            <div id="options-container"></div>
+        </div>
+        <div id="question-progress">
+            Question <span id="current-question-number">1</span> of <span id="total-questions">10</span>
+        </div>
+        <button id="next-button" onclick="quiz.nextQuestion()">Next</button>
+        <div id="result-container" class="hidden">
+            <h2>Your Score: <span id="score"></span></h2>
+            <div id="answer-summary"></div>
+        </div>
     </div>
-
     <script src="script/quiz.js"></script>
-
 </body>
 </html>
