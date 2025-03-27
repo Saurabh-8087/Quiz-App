@@ -47,6 +47,25 @@ class Quiz {
       this.displayResults();
     }
   }
+  previousQuestion() {
+    if (this.currentQuestionIndex < this.totalQuestions - 1) {
+      this.currentQuestionIndex--;
+      this.loadQuestion();
+    } else {
+      this.displayResults();
+    }
+  }
+
+
+
+  Question() {
+    if (this.currentQuestionIndex < this.totalQuestions - 1) {
+      this.currentQuestionIndex++;
+      this.loadQuestion();
+    } else {
+      this.displayResults();
+    }
+  }
 
   displayResults() {
     document.getElementById('question-container').classList.add('hidden');
@@ -91,4 +110,8 @@ quiz.startQuiz();
 
 document.getElementById('next-button').addEventListener('click', () =>{
     quiz.nextQuestion();
+});
+
+document.getElementById('previous-button').addEventListener('click', () =>{
+  quiz.previousQuestion();
 });
