@@ -6,7 +6,7 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
-  overflow-y: auto;  /* Allow the page to scroll when necessary */
+  overflow-y: auto;  
 }
 
 .quiz-container {
@@ -16,8 +16,8 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   width: 400px;
   text-align: center;
-  max-height: 80vh; /* Restrict the max height to 80% of the viewport height */
-  overflow-y: auto; /* Allow scrolling if content exceeds */
+  max-height: 80vh; 
+  overflow-y: auto; 
 }
 
 button {
@@ -51,12 +51,10 @@ button:hover {
   border-radius: 5px;
 }
 
-/* .option:hover {
-  background-color: #f1f1f1;
-} */
+
 
 .correct {
-  /* background-color: #28a745; Green for correct answers */
+  
   color: green;
 }
 
@@ -65,7 +63,7 @@ button:hover {
 }
 
 .selected {
-  background-color: gray; /* Light blue background for selected options */
+  background-color: gray; 
 }
 
 #score {

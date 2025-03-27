@@ -37,39 +37,26 @@ class Quiz {
     });
 
     document.getElementById('current-question-number').textContent = this.currentQuestionIndex + 1;
-
-
-    // document.getElementById('next-button').disabled = currentQuestion.selectedAnswer === null;
-
-    // document.getElementById('previous-button').disabled = currentQuestion.selectedAnswer === null;
   }
 
   handleAnswerSelection(selectedOption, selectedElement) {
     const currentQuestion = this.questions[this.currentQuestionIndex];
 
-    // If the user already selected an option, remove the 'selected' class
     const previousSelectedOption = document.querySelector('.option.selected');
     if (previousSelectedOption) {
       previousSelectedOption.classList.remove('selected');
     }
 
-    // Add the 'selected' class to the newly selected option
     selectedElement.classList.add('selected');
     currentQuestion.selectedAnswer = selectedOption;
 
-    // document.getElementById('next-button').disabled = false;
-    // document.getElementById('previous-button').disabled = false;
+  
     
   }
 
   nextQuestion() {
 
-    // const currentQuestion = this.questions[this.currentQuestionIndex];
-
-    // if(currentQuestion.selectedAnswer === null){
-    //   alert('Please select an option before moving to the next question.');
-    //   return;
-    // }
+   
 
     if (this.currentQuestionIndex < this.totalQuestions - 1) {
       this.currentQuestionIndex++;
@@ -79,12 +66,7 @@ class Quiz {
     }
   }
   previousQuestion() {
-    // const currentQuestion = this.questions[this.currentQuestionIndex];
-
-    // if(currentQuestion.selectedAnswer === null){
-    //   alert('Please select an option before moving to the next question.');
-    //   return;
-    // }
+    
     if (this.currentQuestionIndex < this.totalQuestions - 1) {
       this.currentQuestionIndex--;
       this.loadQuestion();
@@ -111,19 +93,19 @@ class Quiz {
     document.getElementById('previous-button').classList.add('hidden');
     document.getElementById('result-container').classList.remove('hidden');
 
-    // Calculate score (correct answers count)
+   
     this.questions.forEach(question => {
       if (question.checkAnswer()) {
         this.score++;
       }
     });
 
-    // Show score as "X out of Y"
+    
     document.getElementById('score').textContent = `${this.score} out of ${this.totalQuestions}`;
     
-    // Show answers with their respective colors at the end of the quiz
+  
     const resultContainer = document.getElementById('answer-summary');
-    resultContainer.innerHTML = ''; // Clear any previous content
+    resultContainer.innerHTML = ''; 
     this.questions.forEach((question, index) => {
       const questionResult = document.createElement('div');
       questionResult.classList.add('question-result');
@@ -152,8 +134,6 @@ class Quiz {
 }
 
 
-
-// Initialize the Quiz class and start the quiz
 const quiz = new Quiz(questions);
 quiz.startQuiz();
 
