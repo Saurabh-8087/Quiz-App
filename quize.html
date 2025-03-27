@@ -15,12 +15,14 @@
         <div id="question-progress">
             Question <span id="current-question-number">1</span> of <span id="total-questions">10</span>
         </div>
-        <button id="next-button" onclick="quiz.nextQuestion()">Next</button>
+        <button id="previous-button">previous</button>
+        <button id="next-button">Next</button>
         <div id="result-container" class="hidden">
             <h2>Your Score: <span id="score"></span></h2>
             <div id="answer-summary"></div>
         </div>
     </div>
-    <script src="script/quiz.js"></script>
+    <script src="script/question.js" type="module"></script> 
+    <script src="script/quiz.js" type="module"></script>
 </body>
 </html>
