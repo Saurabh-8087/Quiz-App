@@ -134,13 +134,24 @@ class Quiz {
       `;
       resultContainer.appendChild(questionResult);
     });
+
+    document.getElementById('restart-button').classList.remove('hidden');
   }
 
   startQuiz() {
     document.getElementById('total-questions').textContent = this.totalQuestions;
     this.loadQuestion();
   }
+
+  restartQuiz() {
+
+    location.reload();
+    
+    this.loadQuestion();
+  }
 }
+
+
 
 // Initialize the Quiz class and start the quiz
 const quiz = new Quiz(questions);
@@ -152,4 +163,8 @@ document.getElementById('next-button').addEventListener('click', () =>{
 
 document.getElementById('previous-button').addEventListener('click', () =>{
   quiz.previousQuestion();
+});
+
+document.getElementById('restart-button').addEventListener('click', () =>{
+  quiz.restartQuiz();
 });
