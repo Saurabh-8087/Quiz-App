@@ -1,7 +1,7 @@
 import {Question} from "./question.js";
 
 
-export const questions = [
+ const questions = [
   new Question("What does `var` mean in JavaScript?", ["Variable", "Value", "Function", "None of the above"], "Variable"),
   new Question("Which of the following is used to define a function in JavaScript?", ["def", "function", "func", "define"], "function"),
   new Question("What is the output of `typeof null` in JavaScript?", ["null", "object", "undefined", "NaN"], "object"),
@@ -33,11 +33,19 @@ class Quiz {
       optionElement.classList.add('option');
       optionElement.textContent = option;
       optionElement.onclick = () => this.handleAnswerSelection(option, optionElement);
+
+
+      if(currentQuestion.selectedAnswer === option){
+        optionElement.classList.add('selected');
+      }
+
       optionsContainer.appendChild(optionElement);
     });
 
     document.getElementById('current-question-number').textContent = this.currentQuestionIndex + 1;
   }
+
+
 
   handleAnswerSelection(selectedOption, selectedElement) {
     const currentQuestion = this.questions[this.currentQuestionIndex];
@@ -55,9 +63,6 @@ class Quiz {
   }
 
   nextQuestion() {
-
-   
-
     if (this.currentQuestionIndex < this.totalQuestions - 1) {
       this.currentQuestionIndex++;
       this.loadQuestion();
@@ -75,16 +80,6 @@ class Quiz {
     }
   }
 
-
-
-  Question() {
-    if (this.currentQuestionIndex < this.totalQuestions - 1) {
-      this.currentQuestionIndex++;
-      this.loadQuestion();
-    } else {
-      this.displayResults();
-    }
-  }
 
   displayResults() {
     document.getElementById('question-container').classList.add('hidden');
